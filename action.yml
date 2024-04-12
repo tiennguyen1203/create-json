@@ -4,12 +4,15 @@ description: 'Create an JSON file from secret or a string of a json.'
 inputs:
   name:
     description: 'The name of the file to be written. | file.json '
-    required: true
+    required: false
+  full_file_name:
+    description: 'The full path of the file to be written. | ${{ github.workspace }}/android/file.json '
+    required: false
   json:
     description: 'The json string that can be a secret of the github repo or a string of a json. | "{"title": "my json"}" '
     required: true
   dir:
-    description: 'Optional subfolder directory to save the json file. | src/ '
+    description: 'Optional subfolder directory to save the json file. Only work with `name` property | src/ '
     required: false
 outputs:
   successfully:
