@@ -6,7 +6,7 @@ inputs:
     description: 'The name of the file to be written. | file.json '
     required: false
   full_file_name:
-    description: 'The full path of the file to be written. | ${{ github.workspace }}/android/file.json '
+    description: 'The full path of the file to be written. | GITHUB_WORKSPACE/android/file.json '
     required: false
   json:
     description: 'The json string that can be a secret of the github repo or a string of a json. | "{"title": "my json"}" '
