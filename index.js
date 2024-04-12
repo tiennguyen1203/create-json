@@ -18,7 +18,8 @@ try {
         return;
     }
 
-    core.info(`Creating json file ${fullPath}...`)
+    core.info(`Creating json file...`)
+    core.info(`file path ${fullPath}...`)
     fs.writeFile(fullPath, fileContent, function (error) {
 
         if (error) {
