@@ -3,15 +3,21 @@ const fs = require('fs');
 const path = require("path");
 
 const fileName = core.getInput('name');
+const fullFileName = core.getInput('full_file_name');
+
 const jsonString = core.getInput('json');
 const dir = core.getInput('dir');
-const fullPath = path.join(process.env.GITHUB_WORKSPACE, dir || "", fileName);
-
+const fullPath = fullFileName || path.join(process.env.GITHUB_WORKSPACE, dir || "", fileName);
 let fileContent = JSON.stringify(jsonString);
 
 fileContent = JSON.parse(fileContent)
 
 try {
+    if (!fileName && !fullFileName) {
+        core.setFailed('Please provide a file name or full file name');
+        return;
+    }
+
     core.info('Creating json file...')
     fs.writeFile(fullPath, fileContent, function (error) {
 
