@@ -23,4 +23,4 @@ jobs:
       - uses: actions/checkout@v1
       - uses: TG908/publish-github-action@v1
         with:
-          github_token: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
