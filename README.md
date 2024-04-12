@@ -10,7 +10,7 @@ Example of the output on the .json file created:
 
 ```json
 {
-    "name":"jsdaniell",
+    "name":"tiennguyen1203",
     "password":"mypass"
 }
 ```
@@ -21,7 +21,7 @@ You can define a json structure on the secrets of your repository:
 
 ```json
 {
-    "name":"jsdaniell",
+    "name":"tiennguyen1203",
     "password":"mypass"
 }
 ```
@@ -32,7 +32,7 @@ and use in this way:
 ```yaml
     - name: create-json
       id: create-json
-      uses: jsdaniell/create-json@v1.2.3
+      uses: tiennguyen1203/create-json@v2.0.0
       with:
         name: "credentials.json"
         json: ${{ secrets.MY_JSON }}
@@ -43,10 +43,10 @@ Or just declare a string of a json on the property `json` like:
 ```yaml
     - name: create-json
       id: create-json
-      uses: jsdaniell/create-json@v1.2.3
+      uses: tiennguyen1203/create-json@v2.0.0
       with:
         name: "new-json-file.json"
-        json: '{"name":"jsdaniell", "password":"mypass"}'
+        json: '{"name":"tiennguyen1203", "password":"mypass"}'
 ```
 <sub><sup>The json have to be inside a string.</sup></sub>
 
@@ -55,7 +55,7 @@ You also can save the json on a subdirectory using the property `dir`:
 ```yaml
     - name: create-json
       id: create-json
-      uses: jsdaniell/create-json@v1.2.3
+      uses: tiennguyen1203/create-json@v2.0.0
       with:
         name: "credentials.json"
         json: ${{ secrets.CREDENTIALS_JSON }}
@@ -69,17 +69,17 @@ If you want to create more than one json files, you have to specify different ID
 ```yaml
     - name: create-json
       id: create-json-1 # First ID
-      uses: jsdaniell/create-json@v1.2.3
+      uses: tiennguyen1203/create-json@v2.0.0
       with:
         name: "credentials.json"
         json: ${{ secrets.CREDENTIALS_JSON }}
         dir: 'src/'
     - name: create-json
       id: create-json-2  # Second ID
-      uses: jsdaniell/create-json@v1.2.3
+      uses: tiennguyen1203/create-json@v2.0.0
       with:
         name: "other.json"
-        json: '{"name":"jsdaniell", "password":"mypass"}'
+        json: '{"name":"tiennguyen1203", "password":"mypass"}'
         dir: 'src/'
 ```
 
@@ -103,12 +103,12 @@ jobs:
       - run: cd src && go mod vendor
       - name: create-json
         id: create-json
-        uses: jsdaniell/create-json@v1.2.3
+        uses: tiennguyen1203/create-json@v2.0.0
         with:
           name: "devdatatools-firebase-adminsdk.json"
           json: ${{ secrets.CREDENTIALS_JSON }}
           dir: "src/"
-      - run: git config --global user.email "jose.daniell@outlook.com" && git config --global user.name "jsdaniell" && git add . && git add --force src/devdatatools-firebase-adminsdk.json && git status && git commit -a -m "Deploy Heroku Commit with the Credentials JSON created!"
+      - run: git config --global user.email "jose.daniell@outlook.com" && git config --global user.name "tiennguyen1203" && git add . && git add --force src/devdatatools-firebase-adminsdk.json && git status && git commit -a -m "Deploy Heroku Commit with the Credentials JSON created!"
       - uses: akhileshns/heroku-deploy@v3.4.6
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
@@ -123,4 +123,4 @@ After commit and use with Heroku the file is deleted after the workflow and the 
 
 You can submit an issue or PR anytime for the improvement this action!
 
-Version v1.2.3 (Node 20)
+Version v2.0.0 (Node 20)
