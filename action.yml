@@ -1,5 +1,5 @@
 name: 'create-json'
-author: 'jsdaniell'
+author: 'tiennguyen1203'
 description: 'Create an JSON file from secret or a string of a json.'
 inputs:
   name:
